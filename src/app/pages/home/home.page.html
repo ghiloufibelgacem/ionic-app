@@ -1,0 +1,21 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="notification">
+      <ion-icon name="notifications"></ion-icon>
+      <ion-label>notification</ion-label>
+      <ion-badge color="danger" *ngIf="length">{{length}}</ion-badge>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="map">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>map</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="contact">
+      <ion-icon name="call"></ion-icon>
+      <ion-label>contact us</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

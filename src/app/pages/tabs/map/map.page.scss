@@ -1,0 +1,12 @@
+span
+{
+  color :var(--ion-color-primary);
+}
+#mapId 
+{ 
+	height: 300px; width:80%; margin:0 auto;
+	-webkit-box-shadow: 0 2px 3px 3px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 3px 3px rgba(0,0,0,0.2);
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}

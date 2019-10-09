@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref='/login'></ion-back-button>
+    </ion-buttons>
+    <ion-title text-center>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+ <ion-label margin text-center color="danger">{{message}}</ion-label>
+<ion-content padding>
+  <form (ngSubmit)="register()">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Register here</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-label position="floating">Password</ion-label>
+         <ion-input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"></ion-input>
+       </ion-item>
+       <ion-item lines="none" padding-top>
+         <ion-button expand="full" size="default" shape="round" color="success" type="submit">Register</ion-button>
+       </ion-item>
+     </ion-card-content>
+   </ion-card>
+ </form>
+</ion-content>

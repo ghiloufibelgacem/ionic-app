@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title text-center>product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-button padding>
+      <ion-icon name="cart"></ion-icon>
+    </ion-button>
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col size="7">
+            <img [src]="product.img"/>
+        </ion-col>
+      </ion-row>
+      <ion-row justify-content-around>
+        <h2>{{ product.title }}</h2>
+      </ion-row>
+      <ion-row justify-content-around>
+        <span [innerHTML]="product.description"></span>
+      </ion-row>
+      <ion-row justify-content-around>
+        <span [innerHTML]="product.price"></span>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

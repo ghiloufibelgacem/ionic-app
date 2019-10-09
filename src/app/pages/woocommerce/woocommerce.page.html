@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  	<ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>woocommerce</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-card>
+    <ion-slides  [options]="sliderConfig" pager>
+      <ion-slide *ngFor="let number of [1,2,3,4]">
+        <img src="./assets/images/{{number}}.jpg"/>
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+
+  <img style="margin-top: 10px;" src="./assets/images/banner2.jpg" />
+
+  <ion-grid>
+    <ion-row>
+      <ion-slides [options]="sliderConfig" #productSlides>
+        <ion-slide *ngFor="let product of products">
+          <ion-card no-padding>
+            <img [src]="product.img" />
+            <h1 padding center> {{ product.title }} </h1>
+            <p center padding [innerHTML]="product.description"></p>
+            <p center padding [innerHTML]="product.price"></p>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </ion-grid>
+
+  <!-- list products -->
+  <ion-list>
+    <!--(click)="openProductPage(product)"-->
+    <!-- (click)="openProductPage(product)"-->
+    <!-- [routerLink]="['woocommerce','product-details']" -->
+    <ion-item *ngFor="let product of products" text-wrap routerLink='/menu/product-details'>
+      <ion-thumbnail slot="start">
+        <img [src]="product.img"/>
+      </ion-thumbnail>
+      <ion-grid>
+        <ion-row justify-content-around>
+          <h2>{{ product.title }}</h2>
+        </ion-row>
+        <ion-row justify-content-around>
+          <span [innerHTML]="product.description.substr(0, 50) + '...'"></span>
+        </ion-row>
+        <ion-row justify-content-around>
+          <span [innerHTML]="product.price"></span>
+        </ion-row>
+      </ion-grid>
+      <button ion-button icon clear item-right>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+  <!-- more products  -->
+  <ion-infinite-scroll #scroll  threshold="100px" (ionInfinite)="loadMoreProducts($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..." >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

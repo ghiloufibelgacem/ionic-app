@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  	<ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>notification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-toolbar>
+    <ion-searchbar
+                type="search"
+                animated="true"
+                spellcheck="true"
+                [(ngModel)]="searchKey"
+                (ionChange)="search($event)"
+                showCancelButton="true"
+                clearIcon="close-circle"
+                searchIcon="search">
+  </ion-searchbar>
+  </ion-toolbar>
+  <ion-card *ngIf="notifications.length > 0">
+    <ion-list>
+        <ion-item lines="none" *ngFor="let notification of notifications">
+          <ion-thumbnail slot="start">
+            <img [src]="notification.img">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{notification.title}}</h2><br/>
+            <p>{{notification.content}}</p>
+          </ion-label>
+        </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
